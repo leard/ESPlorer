@@ -8700,8 +8700,8 @@ public class ESPlorer extends javax.swing.JFrame {
                 if (Snippets[i].isEmpty()) {
                     ButtonSnippet0.setText("GPIO2 1");
                     prefs.put("Snippet" + i + suffix + "name", "GPIO2 1");
-                    Snippets[i] = "import pyb\r\n"
-                            + "pin = pyb.Pin(2, pyb.Pin.OUT)\r\n"
+                    Snippets[i] = "import machine\r\n"
+                            + "pin = machine.Pin(2, machine.Pin.OUT)\r\n"
                             + "pin.value(1)";
                 }
             }
@@ -8709,8 +8709,8 @@ public class ESPlorer extends javax.swing.JFrame {
                 if (Snippets[i].isEmpty()) {
                     ButtonSnippet1.setText("GPIO2 0");
                     prefs.put("Snippet" + i + suffix + "name", "GPIO2 0");
-                    Snippets[i] = "import pyb\r\n"
-                            + "pin = pyb.Pin(2, pyb.Pin.OUT)\r\n"
+                    Snippets[i] = "import machine\r\n"
+                            + "pin = machine.Pin(2, machine.Pin.OUT)\r\n"
                             + "pin.value(0)";
                 }
             }
@@ -13718,7 +13718,7 @@ public class ESPlorer extends javax.swing.JFrame {
             return;
         }
         log("Send command GPIO" + Integer.toString(gpio) + " : " + Integer.toString(value));
-        String cmd = "import pyb;p=pyb.Pin(" + Integer.toString(gpio) + ",pyb.Pin.OUT);p.value(" + Integer.toString(value) + ")";
+        String cmd = "import machine;p=machine.Pin(" + Integer.toString(gpio) + ",machine.Pin.OUT);p.value(" + Integer.toString(value) + ")";
         btnSend(cmd);
     } // cmdButtonGPIO
 
@@ -13735,7 +13735,7 @@ public class ESPlorer extends javax.swing.JFrame {
             return;
         }
         log("Send command GET GPIO" + Integer.toString(gpio));
-        String cmd = "import pyb;p=pyb.Pin(" + Integer.toString(gpio) + ",pyb.Pin.IN);p.value()";
+        String cmd = "import machine;p=machine.Pin(" + Integer.toString(gpio) + ",machine.Pin.IN);p.value()";
         btnSend(cmd);
     }
 
